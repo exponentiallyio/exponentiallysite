@@ -4,105 +4,306 @@
   <meta charset="UTF-8">
   <title>Exponentially — Ethan Tan Coaching</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--  Google Font for a clean look  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
   <style>
-    :root{
-      --accent:#ff6b00;        /* tweak this to taste */
-      --text:#222;
-      --bg:rgba(255,255,255,.85);
+    :root {
+      --accent: #4ECDC4;
+      --text-light: #FFFFFF;
+      --text-dark: #1A1A1A;
+      --bg-overlay: rgba(17, 17, 17, 0.85);
+      --bg-gold: rgba(245, 215, 161, 0.95);
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 2rem;
+      --spacing-lg: 4rem;
+      --spacing-xl: 6rem;
+      --radius: 8px;
+      --transition: all 0.3s ease;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:'Inter',sans-serif;
-      line-height:1.55;
-      color:var(--text);
-      /* hero background */
-      background:url("ethan-tan-hero.png") center/cover fixed no-repeat;
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    header{
-      display:flex;
-      align-items:center;
-      gap:.75rem;
-      padding:1.25rem 2rem;
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-light);
+      background: url("ethan-tan-hero.png") center/cover fixed no-repeat;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
-    header img{height:40px;width:auto}
-    main{
-      max-width:900px;
-      margin:6rem auto 4rem;
-      padding:2.5rem 3rem;
-      background:var(--bg);
-      border-radius:12px;
-      backdrop-filter:blur(6px);
+    
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
     }
-    h1{
-      font-size:clamp(2rem,5vw,3rem);
-      margin-bottom:1rem;
-      font-weight:600;
+    
+    .logo {
+      height: 32px;
+      width: auto;
+      transition: var(--transition);
     }
-    p{margin:.75rem 0}
-    .cta{
-      display:inline-block;
-      margin-top:1.5rem;
-      padding:.85rem 2rem;
-      font-weight:600;
-      border-radius:6px;
-      background:var(--accent);
-      color:#fff;
-      text-decoration:none;
-      transition:opacity .2s;
+    
+    .logo:hover {
+      opacity: 0.9;
     }
-    .cta:hover{opacity:.85}
-    /* --- testimonials ---- */
-    .testimonials{margin-top:3rem}
-    blockquote{
-      margin:2rem 0;
-      padding-left:1.25rem;
-      border-left:4px solid var(--accent);
-      font-style:italic;
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
     }
-    figcaption{margin-top:.5rem;font-weight:600}
-    @media(max-width:600px){
-      main{margin:4rem 1rem}
+    
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: var(--spacing-sm);
+    }
+    
+    .social-icons a {
+      color: var(--text-light);
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+    
+    .social-icons a:hover {
+      color: var(--accent);
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 var(--spacing-lg);
+      position: relative;
+    }
+    
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+      z-index: 1;
+    }
+    
+    .hero-content {
+      max-width: 650px;
+      position: relative;
+      z-index: 2;
+      text-align: right;
+    }
+    
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .hero-text {
+      font-size: 1.2rem;
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .hero-subtext {
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    /* Clients Section */
+    .clients {
+      background-color: var(--bg-gold);
+      padding: var(--spacing-lg) 0;
+      text-align: center;
+      color: var(--text-dark);
+      position: relative;
+      z-index: 2;
+    }
+    
+    .clients-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      padding: var(--spacing-xl) 0;
+      background-color: var(--bg-overlay);
+      position: relative;
+      z-index: 2;
+    }
+    
+    .testimonial {
+      max-width: 900px;
+      margin: 0 auto var(--spacing-xl);
+      position: relative;
+      padding: var(--spacing-md) 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .testimonial:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    
+    .testimonial-text {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 300;
+      line-height: 1.5;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .testimonial-text strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+    
+    .testimonial-author {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      text-align: right;
+      padding-right: var(--spacing-md);
+    }
+    
+    /* Long testimonial */
+    .testimonial-long .testimonial-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    
+    /* CTA */
+    .cta {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      background-color: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: var(--transition);
+      margin-top: var(--spacing-md);
+    }
+    
+    .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(78, 205, 196, 0.3);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .hero {
+        padding: 0 var(--spacing-md);
+        justify-content: center;
+        text-align: center;
+      }
+      
+      .hero-content {
+        text-align: center;
+      }
+      
+      .testimonial-text {
+        font-size: 1.25rem;
+      }
+      
+      .testimonial-author {
+        text-align: center;
+        padding-right: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="exponentially-logo.png" alt="Exponentially logo">
-  </header>
-
-  <main>
-    <h1>You Are Here to Be Exponential</h1>
-    <p>Hi, I’m **Ethan**. I work with leaders, creators and entrepreneurs to create deep, lasting breakthroughs and help them get what they want out of this <em>one</em> life. I’m fiercely devoted to helping my clients wake up to who they truly are and live from their full potential. If you’re ready for transformation and willing to do the work, I’m here to show you what’s possible.</p>
-
-    <a class="cta" href="mailto:hello@exponentially.io">Let’s talk</a>
-
-    <section class="testimonials">
-      <h2>What clients say</h2>
-
-      <figure>
-        <blockquote>
-          “If I had to describe Ethan in the simplest terms, it would be <strong>master coach</strong>.”  
-        </blockquote>
-        <figcaption>—Tim Tan, Engineering Manager, Aetna</figcaption>
-      </figure>
-
-      <figure>
-        <blockquote>
-          “Working with Ethan yielded a new appreciation for each moment of my day, a fuller sense of being present, and a calmness in the midst of significant life events.”  
-        </blockquote>
-        <figcaption>—Mustafa Qutub, VP Sales, Rafay</figcaption>
-      </figure>
-
-      <figure>
-        <blockquote>
-          “Ethan’s guidance has helped me step into a much more grounded, authentic and fulfilled Product Manager and human being.”  
-        </blockquote>
-        <figcaption>—Kwame Johnson, Lead PM, Found</figcaption>
-      </figure>
-    </section>
-  </main>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <img src="exponentially-logo.png" alt="Exponentially logo" class="logo">
+    <div class="nav-links">
+      <a href="#contact">Contact</a>
+      <div class="social-icons">
+        <a href="#" aria-label="Discord">⚪</a>
+        <a href="#" aria-label="X">✕</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">You Are Here To Be Exponential</h1>
+      <p class="hero-text">Hi, I'm Ethan. I work with leaders, creators, and entrepreneurs and help them create deep, lasting breakthroughs to get what they want out of themselves and this ONE life.</p>
+      <p class="hero-subtext">I see brilliant people hold themselves back and settle for so much less than they deserve.</p>
+      <a href="mailto:hello@exponentially.io" class="cta">Let's talk</a>
+    </div>
+  </section>
+  
+  <!-- Clients Section -->
+  <section class="clients">
+    <div class="container">
+      <h2 class="clients-title">My clients come from all walks of life: founders, lawyers, and leaders from Google, Amazon, Microsoft, and Facebook</h2>
+    </div>
+  </section>
+  
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonial">
+        <p class="testimonial-text">"If I had to describe Ethan in the simplest terms, it would be <strong>master coach</strong>."</p>
+        <p class="testimonial-author">- Tim Tan, Engineering Manager, Aetna</p>
+      </div>
+      
+      <div class="testimonial">
+        <p class="testimonial-text">"Working with Ethan yielded a new appreciation for each moment of my day, a fuller sense of being present, and a calmness in the midst of significant life events."</p>
+        <p class="testimonial-author">- Mustafa Qutub, VP Sales, Rafay</p>
+      </div>
+      
+      <div class="testimonial testimonial-long">
+        <p class="testimonial-text">"Ethan's guidance has helped me step into a much more grounded, authentic, effective, and <strong>FULFILLED</strong> Product Manager and human being. Ethan was incredible at guiding deep self-reflections and helping me discover wonderful wisdom and insights that continue to help me show up as the best version of myself every single day. There are several things that used to affect my ability to be who I wanted to be that are 100% no longer issues for me and will never get in my way again. It is this lasting change that I most value about Ethan's impact on my life. I still hear his voice and reminders in my head each day. I'm truly grateful."</p>
+        <p class="testimonial-author">- Kwame Johnson, Lead Product Manager, Found</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
