@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exponentially — Ethan Tan Coaching</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--  Google Font for a clean look  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
+  <style>
+    :root{
+      --accent:#ff6b00;        /* tweak this to taste */
+      --text:#222;
+      --bg:rgba(255,255,255,.85);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Inter',sans-serif;
+      line-height:1.55;
+      color:var(--text);
+      /* hero background */
+      background:url("hero.jpg") center/cover fixed no-repeat;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      padding:1.25rem 2rem;
+    }
+    header img{height:40px;width:auto}
+    main{
+      max-width:900px;
+      margin:6rem auto 4rem;
+      padding:2.5rem 3rem;
+      background:var(--bg);
+      border-radius:12px;
+      backdrop-filter:blur(6px);
+    }
+    h1{
+      font-size:clamp(2rem,5vw,3rem);
+      margin-bottom:1rem;
+      font-weight:600;
+    }
+    p{margin:.75rem 0}
+    .cta{
+      display:inline-block;
+      margin-top:1.5rem;
+      padding:.85rem 2rem;
+      font-weight:600;
+      border-radius:6px;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      transition:opacity .2s;
+    }
+    .cta:hover{opacity:.85}
+    /* --- testimonials ---- */
+    .testimonials{margin-top:3rem}
+    blockquote{
+      margin:2rem 0;
+      padding-left:1.25rem;
+      border-left:4px solid var(--accent);
+      font-style:italic;
+    }
+    figcaption{margin-top:.5rem;font-weight:600}
+    @media(max-width:600px){
+      main{margin:4rem 1rem}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Exponentially logo">
+  </header>
+
+  <main>
+    <h1>You Are Here to Be Exponential</h1>
+    <p>Hi, I’m **Ethan**. I work with leaders, creators and entrepreneurs to create deep, lasting breakthroughs and help them get what they want out of this <em>one</em> life. I’m fiercely devoted to helping my clients wake up to who they truly are and live from their full potential. If you’re ready for transformation and willing to do the work, I’m here to show you what’s possible.</p>
+
+    <a class="cta" href="mailto:hello@exponentially.io">Let’s talk</a>
+
+    <section class="testimonials">
+      <h2>What clients say</h2>
+
+      <figure>
+        <blockquote>
+          “If I had to describe Ethan in the simplest terms, it would be <strong>master coach</strong>.”  
+        </blockquote>
+        <figcaption>—Tim Tan, Engineering Manager, Aetna</figcaption>
+      </figure>
+
+      <figure>
+        <blockquote>
+          “Working with Ethan yielded a new appreciation for each moment of my day, a fuller sense of being present, and a calmness in the midst of significant life events.”  
+        </blockquote>
+        <figcaption>—Mustafa Qutub, VP Sales, Rafay</figcaption>
+      </figure>
+
+      <figure>
+        <blockquote>
+          “Ethan’s guidance has helped me step into a much more grounded, authentic and fulfilled Product Manager and human being.”  
+        </blockquote>
+        <figcaption>—Kwame Johnson, Lead PM, Found</figcaption>
+      </figure>
+    </section>
+  </main>
+</body>
+</html>
